@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html>
+
 <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <div id="page1">
         <p>{{title}}</p>
+        <table>
+            <tr>
+                <th>image</th>
+                <th>name</th>
+                <th>surname</th>
+                <th>patronymic</th>
+            <tr v-for="user in users">
+                <td>{{user.image}}</td><td>{{user.name}}</td><td>{{user.surname}}</td><td>{{user.patronymic}}</td>
+            </tr>
+        </table>
     </div>
 
     <script>
         new Vue({
             el: "#page1",
-            data: function() {
-                return{
-                    title: "Vue! Vue!"
+            data: function () {
+                return {
+                    title: "Vue! Vue!",
+                    users: [{
+                            name: "1",
+                            surname: "12",
+                            patronymic: "13",
+                            image: ""
+                        },
+                        {
+                            name: "2",
+                            surname: "22",
+                            patronymic: "23",
+                            image: ""
+                        },
+                        {
+                            name: "3",
+                            surname: "31",
+                            patronymic: "32",
+                            image: ""
+                        },
+                        {
+                            name: "4",
+                            surname: "41",
+                            patronymic: "42",
+                            image: ""
+                        },
+                        {
+                            name: "5",
+                            surname: "51",
+                            patronymic: "52",
+                            image: ""
+                        }
+                    ]
                 }
+            },
+            methods: {
+
             }
         })
     </script>
