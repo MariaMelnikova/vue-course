@@ -6,13 +6,27 @@
     <div id="page1">
         <p>{{title}}</p>
         <table>
+            <th>Now we have {{users.length}} users</th>
+            <button>
+                {{buttonText}}
+            </button>
             <tr>
-                <th>image</th>
+                <th>image </th>
                 <th>name</th>
                 <th>surname</th>
                 <th>patronymic</th>
             <tr v-for="user in users">
-                <td>{{user.image}}</td><td>{{user.name}}</td><td>{{user.surname}}</td><td>{{user.patronymic}}</td>
+                <td>
+                    <div v-if="user.image">
+                        <img style="height: 70px; width: auto" v-bind:src="user.image">
+                    </div>
+                    <div v-else="!user.image" style="height: 70px; text-align: center; width: auto">
+                        image
+                    </div>
+                </td>
+                <td>{{user.name}}</td>
+                <td>{{user.surname}}</td>
+                <td>{{user.patronymic}}</td>
             </tr>
         </table>
     </div>
@@ -23,23 +37,24 @@
             data: function () {
                 return {
                     title: "Vue! Vue!",
+                    buttonText: "Show users",
                     users: [{
                             name: "1",
                             surname: "12",
                             patronymic: "13",
-                            image: ""
+                            image: "https://avatarko.ru/img/kartinka/30/zhivotnye_ptica_popugaj_29278.jpg"
                         },
                         {
                             name: "2",
                             surname: "22",
                             patronymic: "23",
-                            image: ""
+                            image: "https://avatarko.ru/img/kartinka/33/zhivotnye_tigr_32289.jpg"
                         },
                         {
                             name: "3",
                             surname: "31",
                             patronymic: "32",
-                            image: ""
+                            image: "https://avatarko.ru/img/kartinka/15/zhivotnye_sobaka_14799.jpg"
                         },
                         {
                             name: "4",
@@ -51,7 +66,7 @@
                             name: "5",
                             surname: "51",
                             patronymic: "52",
-                            image: ""
+                            image: "https://avatarko.ru/img/kartinka/21/zhivotnye_kot_son_20499.jpg"
                         }
                     ]
                 }
