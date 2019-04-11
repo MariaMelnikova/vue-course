@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div id="userList">
+        <p>{{title}}</p>
+
+        <table class="table table-hover table-dark">
+            <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">firstName</th>
+                    <th scope="col">lastName</th>
+                    <th scope="col">company</th>
+                    <th scope="col">about</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="user in users">
+                    <td>
+                            <img style="height: 70px; width: auto" v-bind:src="user.picture">
+                    </td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.company}}</td>
+                    <td>{{user.about}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+    <script>
+        new Vue({
+            el: "#userList",
+            data: function () {
+                return {
+                    title: "Vue! Vue!",
+                    buttonText: "Show users",
+                    users: [{
+                            "id": 0,
+                            "isActive": true,
+                            "balance": "$3,999.53",
+                            "picture": "http://placehold.it/128x128",
+                            "age": 31,
+                            "accessLevel": "admin",
+                            "firstName": "Connie",
+                            "lastName": "Donovan",
+                            "company": "GEEKMOSIS",
+                            "email": "connie.donovan@geekmosis.biz",
+                            "phone": "+7 (802) 551-3742",
+                            "address": "585 Devon Avenue, Valmy, Alabama, 4221",
+                            "about": "Aute proident irure consectetur ad adipisicing do laboris aliqua eu consectetur magna eu. Laborum est elit elit cillum ex officia labore ullamco esse quis aliqua consectetur do. Excepteur sunt nisi ipsum ut veniam occaecat quis.",
+                            "registered": "25.05.2018"
+                        },
+                        {
+                            "id": 1,
+                            "isActive": false,
+                            "balance": "$1,905.69",
+                            "picture": "http://placehold.it/128x128",
+                            "age": 32,
+                            "accessLevel": "guest",
+                            "firstName": "Martinez",
+                            "lastName": "Burgess",
+                            "company": "OMATOM",
+                            "email": "martinez.burgess@omatom.com",
+                            "phone": "+7 (964) 542-3428",
+                            "address": "765 Linwood Street, Springville, New Mexico, 8997",
+                            "about": "Ex dolore pariatur sit quis. Velit est in cupidatat proident velit enim ex duis dolor aliquip id duis. Eiusmod consequat esse magna veniam magna cillum quis ut cillum sunt elit est quis enim.",
+                            "registered": "12.03.2016"
+                        },
+                        {
+                            "id": 2,
+                            "isActive": false,
+                            "balance": "$1,388.97",
+                            "picture": "http://placehold.it/128x128",
+                            "age": 26,
+                            "accessLevel": "user",
+                            "firstName": "Charity",
+                            "lastName": "Cohen",
+                            "company": "DIGIGEN",
+                            "email": "charity.cohen@digigen.info",
+                            "phone": "+7 (907) 575-3006",
+                            "address": "878 Portal Street, Virgie, Alaska, 8506",
+                            "about": "Duis Lorem eiusmod elit minim ad labore consectetur occaecat pariatur. Enim aliqua labore in elit ad. Reprehenderit reprehenderit dolore reprehenderit officia. Quis incididunt velit veniam proident dolor esse nulla enim laboris est. Excepteur in Lorem reprehenderit eu anim do cillum veniam tempor voluptate nisi ut ullamco. Magna aliquip pariatur esse minim duis ex. Nulla fugiat amet ullamco amet sunt qui velit quis culpa ad.",
+                            "registered": "08.11.2016"
+                        }
+                    ]
+                }
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
