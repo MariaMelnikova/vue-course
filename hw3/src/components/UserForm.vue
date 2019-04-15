@@ -1,9 +1,9 @@
 <template>
-  <div id="userForm">
+  <div>
     <div style="min-height: 30px;"></div>
-    <b style="margin-left: 300px;">{{title}}</b>
+    <b style="margin-left: -50px;">{{title}}</b>
 
-    <form style="height: auto; width: 1000px; margin-left: 50px;">
+    <form style="height: auto; width: 1000px; margin-left: 450px;">
       <div class="form-group">
         <label for="exampleFormControlInput1">First Name</label>
         <input
@@ -37,31 +37,32 @@
 
       <div class="form-group">
         <label for="exampleFormControlTextarea1">About</label>
-        <textarea class="form-control" id="about" v-bind:value="user.about"></textarea>
+        <textarea style="height: 200px;" class="form-control" id="about" v-bind:value="user.about"></textarea>
       </div>
     </form>
   </div>
 </template>
 
 <script>
+import router from "../router";
 export default {
   name: "UserForm",
-
-  data: function () {
-                return {
-                    title: "Edit form",
-                    user: {}
-                }
-            },
-            mounted() {
-                    const axios = require('axios');
-                axios
-                    .get('http://localhost:3000/users/1')
-                    .then(response => {(this.user = response.data); });
-            },
+  watch: {
+    $route: "fetchData"
+  },
+  data: function() {
+    return {
+      title: "Edit form",
+      user: {}
+    };
+  },
+  mounted() {
+    const userId = parseInt(this.$route.params.userId);
+    const axios = require("axios");
+    axios.get("http://localhost:3000/users/" + userId).then(response => {
+      this.user = response.data;
+    });
+  }
 };
 </script>
 
-<style  lang="scss" scoped>
-@import "./node_modules/bootstrap/scss/bootstrap";
-</style>

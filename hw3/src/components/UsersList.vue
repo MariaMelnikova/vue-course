@@ -4,7 +4,7 @@
 
     <table
       class="table table-hover table-dark"
-      style="height: auto; width: 1000px; margin-left: 150px;"
+      style="height: auto; width: 1000px; margin-left: 450px;"
     >
       <thead>
         <tr>
@@ -25,14 +25,13 @@
           <td>{{user.company}}</td>
           <td>{{user.about}}</td>
           <td>
-            <router-link :to="{ params:{ userId: user.id }}"> Edit</router-link>
+            <router-link :to="{ name: 'user', params: {userId: user.id } }">Edit</router-link>
           </td>
         </tr>
       </tbody>
     </table>
-      <router-view></router-view>
+    <router-view></router-view>
   </div>
-  
 </template>
 
 <script>
@@ -54,6 +53,3 @@ export default {
   methods: {}
 };
 </script>
-
-<style scoped>
-</style>

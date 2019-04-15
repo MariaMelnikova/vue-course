@@ -18,12 +18,12 @@ export default new VueRouter({
         {
             path: "/usersList",
             name: "usersList",
-            component: UsersList,
-            children: [{
-                path: ":userId",
-                name: "user",
-                component: UserForm
-            }]
+            component: UsersList
+        },
+        {
+            path: "/usersList/:userId",
+            name: "user",
+            component: UserForm
         }
     ]
 })

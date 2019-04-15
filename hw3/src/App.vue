@@ -1,10 +1,12 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <router-link to="/">Home</router-link>|
+    <p  style="height: auto; width: 1000px; margin-left: 150px; display:block;">
+    <router-link to="/">Home</router-link>
+    </p>
+     <p  style="height: auto; width: 1000px; margin-left: 150px; display:block;">
     <router-link to="/usersList">UsersList</router-link>
-    <!-- <UsersList v-bind:users="users"/> -->
-
+    </p>
     <router-view></router-view>
   </div>
 </template>
